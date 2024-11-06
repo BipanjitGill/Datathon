@@ -1,0 +1,2 @@
+- created renaming function 
+- used sequence number of that person only which have diabetes and not diabetes
