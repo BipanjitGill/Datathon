@@ -1,6 +1,8 @@
 ## EDA
 
-### BMI (Relative)
+### Weight History
+
+#### BMI (Relative)
 
 | Statistic | Diabetes (relative) | Non Diabetes |
 |-----------|---------------------|--------------|
@@ -12,14 +14,40 @@
 | 75%       | 0.050728            | 0.044343     |
 | Max       | 0.112500            | 0.109261     |
 
-### Weight Change (Interquartile Range)
+#### Weight Change (Interquartile Range)
 
 - For Diabetes, Weight Change - Q1: -15.0 and Q3: 0.0 
 - For Non-Diabetes, Weight Change - Q1: -5.0 and Q3: 5.0
 
-### Tried to loss Weight
+#### Tried to loss Weight
 
 - For Diabetes, Tried to Lose Weight People Percentage: 48.54%
 - For Non-Diabetes, Tried to Lose Weight People Percentage: 44.71%
 
 ![Tried to lose weight plot](images/tried_lose_weight.png)
+
+### Occupation
+
+#### Work Experience
+
+People who are not working at a job or business are more prone to diabetes
+![Work Experience plot](images/work_experience.png)
+
+#### Working Hours
+
+Woking hours does not have much influence.
+- Mean working hours of a person having diabetes = 38.465 hrs
+- Mean working hours of a person not having diabetes = 38.667 hrs
+- Average working days for people with diabetes in a week: 4.83
+- Average working days for people without diabetes in a week: 4.81
+![Working Hours plot](images/working_hours.png)
+
+
+#### Reasons of not working last week 
+
+- Percentage of people with diabetes who are not working because of health issues:  31.32%
+
+- Percentage of people without diabetes who are not working because of health issues:  16.84%
+
+![Reasons for not working plot](images/reason_not_working.png)
+
