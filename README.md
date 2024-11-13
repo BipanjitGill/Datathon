@@ -1,28 +1,23 @@
-## BMI
-Diabetes (relative)
-- mean        0.045443
-- std         0.010822
-- min         0.017637
-- 25%         0.037870
-- 50%         0.043945
-- 75%         0.050728
-- max         0.112500
+## EDA
 
-Non Diabetes
-- mean        0.039753
-- std         0.009509
-- min         0.016039
-- 25%         0.033287
-- 50%         0.037870
-- 75%         0.044343
-- max         0.109261
+### BMI (Relative)
 
-## Weight Change (Interquartile Range)
+| Statistic | Diabetes (relative) | Non Diabetes |
+|-----------|---------------------|--------------|
+| Mean      | 0.045443            | 0.039753     |
+| Std       | 0.010822            | 0.009509     |
+| Min       | 0.017637            | 0.016039     |
+| 25%       | 0.037870            | 0.033287     |
+| 50%       | 0.043945            | 0.037870     |
+| 75%       | 0.050728            | 0.044343     |
+| Max       | 0.112500            | 0.109261     |
+
+### Weight Change (Interquartile Range)
 
 - For Diabetes, Weight Change - Q1: -15.0 and Q3: 0.0 
 - For Non-Diabetes, Weight Change - Q1: -5.0 and Q3: 5.0
 
-## Tried to loss Weight
+### Tried to loss Weight
 
 - For Diabetes, Tried to Lose Weight People Percentage: 48.54%
 - For Non-Diabetes, Tried to Lose Weight People Percentage: 44.71%
