@@ -46,3 +46,13 @@ def double_histogram(array1,array2,x1_label,x2_label,y_label,title,bins=20,densi
     plt.show()
     if to_save:
         plt.savefig(loc+title+".png")
+
+
+def bar_with_percentage(percentages,title,file_name):
+    percentages.plot(kind='bar', stacked=True)
+    plt.title(f'Percentage of {title} in Diabetic vs Non-Diabetic Groups')
+    plt.xlabel('Group')
+    plt.ylabel('Percentage (%)')
+    plt.legend(['No Hypertension', 'Yes Hypertension'], title=f'{title} Status')
+    plt.savefig(f'E:/sem5/datathon/images/{file_name}.png')
+    plt.show()

@@ -98,10 +98,18 @@ df2 = pd.DataFrame({'value': no_diabetes_try, 'group': 'Not Having Diabetes'})
 
 df = pd.concat([df1, df2], ignore_index=True)
 
+counts = df.groupby(['group', 'value']).size().unstack()
+
+percentages = counts.div(counts.sum(axis=1), axis=0) * 100
 plt.figure(figsize=(10, 6))
-sns.violinplot(x='group', y='value', data=df)
-plt.title('Violin Plot of Tried to Lose Weight')
-plt.ylabel('Values')
+percentages.plot(kind='bar', stacked=True, color=['skyblue', 'salmon'])
+plt.title('Percentage of Individuals Who Tried to Lose Weight in Diabetic vs Non-Diabetic Groups')
+plt.xlabel('Group')
+plt.ylabel('Percentage (%)')
+plt.xticks(rotation=0)
+plt.legend(['No (Value = 2)', 'Yes (Value = 1)'], title='Tried to Lose Weight Status', loc='upper right')
 plt.savefig('E:/sem5/datathon/images/tried_lose_weight.png')
 plt.show()
 
+
+# %%
