@@ -35,8 +35,23 @@ plt.figure(figsize=(10, 6))
 sns.violinplot(x='group', y='value', data=df_work)
 plt.title('Violin Plot of Work')
 plt.ylabel('Values')
+textstr = (
+    "Work Experience Categories:\n"
+    "1: Working at a job or business\n"
+    "2: With a job or business but not at work\n"
+    "3: Looking for work\n"
+    "4: Not working at a job or business"
+)
+
+props = dict(boxstyle='round', facecolor='white', alpha=0.8)
+plt.text(
+    1.05, 0.5, textstr, transform=plt.gca().transAxes,
+    fontsize=10, verticalalignment='center', bbox=props
+)
 plt.savefig('E:/sem5/datathon/images/work_experience.png')
 plt.show()
+
+
 
 # %%
 
@@ -74,6 +89,22 @@ plt.figure(figsize=(12, 6))
 sns.violinplot(x='group', y='value', data=df_reason)
 plt.title('Not Working last week reason')
 plt.ylabel('Reason')
+textstr = (
+    "Reasons:\n"
+    "1: Taking care of house or family\n"
+    "2: Going to school\n"
+    "3: Retired\n"
+    "4: Unable to work for health reasons/Disabled\n"
+    "5: Can't find work/On layoff\n"
+    "6: Seasonal/Contract work\n"
+    "7: Other"
+)
+
+props = dict(boxstyle='round', facecolor='white', alpha=0.8)
+plt.text(
+    1.05, 0.5, textstr, transform=plt.gca().transAxes,
+    fontsize=10, verticalalignment='center', bbox=props
+)
 plt.savefig('E:/sem5/datathon/images/reason_not_working.png')
 plt.show()
 
