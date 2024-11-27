@@ -97,9 +97,7 @@ Woking hours does not have much influence.
 - Proportion of People with diabetes who are taking blood pressure medication: 0.9094
 - Proportion of People without diabetes who are taking blood pressure medication: 0.7932
 
-### Smoking
-
-#### Smoke Now     
+#### Do they Smoke now ?     
 
 |           |       Diabetic           |     Non-Diabetic       |
 |-----------|---------------------|--------------|
