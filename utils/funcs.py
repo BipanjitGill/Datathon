@@ -23,6 +23,12 @@ def processed_diabetes_data(path='E:/sem5/datathon/raw_datasets/diabetes.XPT'):
     df = df[df['EverTold_Diabetes'].isin([1.0, 2.0])]
     return df
 
+def gender_data(path='E:/sem5/datathon/raw_datasets/DEMO_L.XPT'):
+    df=pd.read_sas(path, format='xport')
+    result = df[['SEQN','RIAGENDR', 'RIDAGEYR','INDFMPIR']]
+    result=result.rename(columns={'SEQN':'sequence_no','RIAGENDR':'gender','INDFMPIR':'income','RIDAGEYR':'age'})
+    return result
+
 def single_histogram(array,x_label,y_label,title,bins=20,density=True,to_save=False,loc="E:/sem5/datathon/images/"):
     plt.figure(figsize=(10, 6))  
     plt.hist(array, bins=bins, density=density, alpha=0.5)
@@ -56,3 +62,5 @@ def bar_with_percentage(percentages,title,file_name):
     plt.legend(['No Hypertension', 'Yes Hypertension'], title=f'{title} Status')
     plt.savefig(f'E:/sem5/datathon/images/{file_name}.png')
     plt.show()
+
+#%%

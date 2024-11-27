@@ -23,6 +23,14 @@
 | 75%       | 0.050728            | 0.044343     |
 | Max       | 0.112500            | 0.109261     |
 
+![BMI and Age](images/scatter_age_bmi.png) 
+
+The distribution of Age v/s BMI for diabetes patient is almost similar for both gender
+
+![Gender, BMI and Age](images/plot_age_bmi_gender_diabetes.png) 
+
+
+
 #### Weight Change (Interquartile Range)
 
 - For Diabetes, Weight Change - Q1: -15.0 and Q3: 0.0 

@@ -2,7 +2,7 @@
 import pandas as pd
 import sys
 sys.path.append('../')
-from utils.funcs import get_variable_names, rename_columns, processed_diabetes_data,single_histogram,double_histogram
+from utils.funcs import get_variable_names, rename_columns, processed_diabetes_data,gender_data
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -16,6 +16,7 @@ df=rename_columns(df, mapping)
 
 # %%
 df_diabetes=processed_diabetes_data()
+gender_df=gender_data()
 
 # %%
 seq_have_diabetes = df_diabetes[df_diabetes['EverTold_Diabetes']==1.0]['sequence_no']
@@ -45,6 +46,9 @@ df_nothave_diabetes["weight_change"] = df_nothave_diabetes["CurrentWeight"]-df_n
 df_have_diabetes["bmi"] = df_have_diabetes["CurrentWeight"]/(df_have_diabetes['CurrentHeight']**2)
 df_nothave_diabetes["bmi"] = df_nothave_diabetes["CurrentWeight"]/(df_nothave_diabetes['CurrentHeight']**2)
 
+#%%
+df_have_diabetes=pd.merge(df_have_diabetes, gender_df, on='sequence_no', how='inner')
+df_nothave_diabetes=pd.merge(df_nothave_diabetes, gender_df, on='sequence_no', how='inner')
 
 # %%
 print(df_have_diabetes["bmi"].describe())
@@ -56,6 +60,57 @@ print(df_nothave_diabetes["bmi"].describe())
 q1_bmi_nothave_diabetes = df_nothave_diabetes["bmi"].quantile(0.25)
 q3_bmi_nothave_diabetes = df_nothave_diabetes["bmi"].quantile(0.75)
 print(f'For Non-Diabetes, BMI - Q1: {q1_bmi_nothave_diabetes} and Q3: {q3_bmi_nothave_diabetes}')
+
+#%%
+gender_map = {1.0: 'Male', 2.0: 'Female'}
+df_have_diabetes['gender'] = df_have_diabetes['gender'].map(gender_map)
+df_nothave_diabetes['gender'] = df_nothave_diabetes['gender'].map(gender_map)
+#%%
+plt.figure(figsize=(8, 6))
+plt.scatter(
+    df_nothave_diabetes['age'], 
+    df_nothave_diabetes['bmi'], 
+    color='blue', 
+    label='Without Diabetes', 
+    alpha=0.2, 
+    s=30
+)
+plt.scatter(
+    df_have_diabetes['age'], 
+    df_have_diabetes['bmi'], 
+    color='red', 
+    label='With Diabetes', 
+    alpha=0.2, 
+    s=30
+)
+
+plt.title('Scatter Plot of Age vs BMI for Diabetes Status', fontsize=14)
+plt.xlabel('Age', fontsize=12)
+plt.ylabel('BMI', fontsize=12)
+plt.legend(title='Diabetes Status')
+plt.grid(True, linestyle='--', alpha=0.6)
+plt.savefig('E:/sem5/datathon/images/scatter_age_bmi.png')
+plt.show()
+
+#%%
+plt.figure(figsize=(8, 6))
+sns.scatterplot(
+    data=df_have_diabetes,
+    x='age',
+    y='bmi',
+    hue='gender',
+    palette={'Male': 'blue', 'Female': 'red'},
+    s=80,  # Marker size
+    alpha=0.5
+)
+
+plt.title('Plot of Age vs BMI by Gender of Diabetes Patients', fontsize=14)
+plt.xlabel('Age', fontsize=12)
+plt.ylabel('BMI0000000000', fontsize=12)
+plt.legend(title='Gender')
+plt.grid(True, linestyle='--', alpha=0.6)
+plt.savefig('E:/sem5/datathon/images/plot_age_bmi_gender_diabetes.png')
+plt.show()
 
 # %%
 q1_weightchange_have_diabetes = df_have_diabetes["weight_change"].quantile(0.25)
