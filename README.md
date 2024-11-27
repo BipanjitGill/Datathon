@@ -4,7 +4,7 @@
 
 - [Optimization of diabetes prediction methods based on combinatorial balancing algorithm](https://www.nature.com/articles/s41387-024-00324-z#Tab1) use Gender, Age, Hypertension, Heart_disease, Smoking_history, BMI, Glycated Hemoglobin Level, Blood Glucose Level
 
-- [Diabetes Prediction using Machine Learning Algorithms](https://www.sciencedirect.com/science/article/pii/S1877050920300557) use Glucose Level, Blood Pressure, Skin Thickness(mm), Insulin ,BMI ,Age ,Job Type(Office-work/Fieldwork/Machine-work) 
+- [Diabetes Prediction using Machine Learning Algorithms](https://www.sciencedirect.com/science/article/pii/S1877050920300557) use Glucose Level, Blood Pressure, Skin Thickness(mm), Insulin, BMI, Age, Job Type(Office-work/Fieldwork/Machine-work) 
 
 
 ## EDA 
@@ -97,3 +97,12 @@ Woking hours does not have much influence.
 - Proportion of People with diabetes who are taking blood pressure medication: 0.9094
 - Proportion of People without diabetes who are taking blood pressure medication: 0.7932
 
+### Smoking
+
+#### Smoke Now     
+
+|           |       Diabetic           |     Non-Diabetic       |
+|-----------|---------------------|--------------|
+|  Every day |0.2514           | 0.3067     |
+|  Some days	 | 0.0646         | 0.0757     |
+|  Not at all		 | 0.6839         | 0.6175     |
