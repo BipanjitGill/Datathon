@@ -106,7 +106,7 @@ sns.scatterplot(
 
 plt.title('Plot of Age vs BMI by Gender of Diabetes Patients', fontsize=14)
 plt.xlabel('Age', fontsize=12)
-plt.ylabel('BMI0000000000', fontsize=12)
+plt.ylabel('BMI', fontsize=12)
 plt.legend(title='Gender')
 plt.grid(True, linestyle='--', alpha=0.6)
 plt.savefig('E:/sem5/datathon/images/plot_age_bmi_gender_diabetes.png')
@@ -167,4 +167,3 @@ plt.savefig('E:/sem5/datathon/images/tried_lose_weight.png')
 plt.show()
 
 
-# %%

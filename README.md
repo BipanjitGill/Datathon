@@ -50,7 +50,15 @@ It's almost equal percentage, not a good factor
 #### Work Experience
 
 People who are not working at a job or business are more prone to diabetes
+
 ![Work Experience plot](images/work_experience.png)
+
+- **Working at Job or Business** : Diabetes is more prevalent among older individuals in this category.
+- **Not Working at Job or Business** : The average age is similar for individuals with and without diabetes in this group.
+
+![Age Work Experience plot](images/age_work_experience.png)
+
+![Gender Age Work Experience plot](images/age_work_experience_gender.png)
 
 #### Working Hours
 
@@ -59,6 +67,7 @@ Woking hours does not have much influence.
 - Mean working hours of a person not having diabetes = 38.667 hrs
 - Average working days for people with diabetes in a week: 4.83
 - Average working days for people without diabetes in a week: 4.81
+
 ![Working Hours plot](images/working_hours.png)
 
 

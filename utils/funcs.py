@@ -63,4 +63,3 @@ def bar_with_percentage(percentages,title,file_name):
     plt.savefig(f'E:/sem5/datathon/images/{file_name}.png')
     plt.show()
 
-#%%

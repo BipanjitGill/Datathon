@@ -2,7 +2,7 @@
 import pandas as pd
 import sys
 sys.path.append('../')
-from utils.funcs import get_variable_names, rename_columns, processed_diabetes_data,single_histogram,double_histogram
+from utils.funcs import get_variable_names, rename_columns, processed_diabetes_data,gender_data
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -14,12 +14,18 @@ df=pd.read_sas(f'{dataset_path}/occupation.XPT', format='xport')
 mapping=get_variable_names()
 df=rename_columns(df, mapping)
 df_diabetes=processed_diabetes_data()
+gender_df=gender_data()
 
 # %%
 seq_have_diabetes = df_diabetes[df_diabetes['EverTold_Diabetes']==1.0]['sequence_no']
 seq_nothave_diabetes = df_diabetes[df_diabetes['EverTold_Diabetes']==2.0]['sequence_no']
 df_have_diabetes = df[df['sequence_no'].isin(seq_have_diabetes)]
 df_nothave_diabetes = df[df['sequence_no'].isin(seq_nothave_diabetes)]
+df_have_diabetes=pd.merge(df_have_diabetes, gender_df, on='sequence_no', how='inner')
+df_nothave_diabetes=pd.merge(df_nothave_diabetes, gender_df, on='sequence_no', how='inner')
+gender_map = {1.0: 'Male', 2.0: 'Female'}
+df_have_diabetes['gender'] = df_have_diabetes['gender'].map(gender_map)
+df_nothave_diabetes['gender'] = df_nothave_diabetes['gender'].map(gender_map)
 
 #%%
 yes_diabetes_work=df_have_diabetes["WorkExperience_LastWeek"].dropna()
@@ -48,13 +54,72 @@ plt.text(
     1.05, 0.5, textstr, transform=plt.gca().transAxes,
     fontsize=10, verticalalignment='center', bbox=props
 )
-plt.savefig('E:/sem5/datathon/images/work_experience.png')
+# plt.savefig('E:/sem5/datathon/images/work_experience.png')
+plt.show()
+
+#%%
+df_have_diabetes['group'] = 'Having Diabetes'
+df_nothave_diabetes['group'] = 'Not Having Diabetes'
+df_age_work = pd.concat([df_have_diabetes, df_nothave_diabetes], ignore_index=True)
+df_age_work = df_age_work[['WorkExperience_LastWeek', 'age', 'group','gender']].dropna()
+df_age_work = df_age_work[df_age_work['WorkExperience_LastWeek'] < 5]
+work_experience_labels = {
+    1: 'Working at a job or business',
+    2: 'With a job or business but not at work',
+    3: 'Looking for work',
+    4: 'Not working at a job or business'
+}
+df_age_work['WorkExperience_LastWeek'] = df_age_work['WorkExperience_LastWeek'].map(work_experience_labels)
+plt.figure(figsize=(12, 8))
+sns.boxplot(
+    x='WorkExperience_LastWeek',
+    y='age',
+    hue='group',
+    data=df_age_work,
+    palette={'Having Diabetes': 'red', 'Not Having Diabetes': 'blue'}
+)
+plt.title('Age Distribution by Work Experience Categories and Diabetes Status', fontsize=14)
+plt.xlabel('Work Experience Categories', fontsize=12)
+plt.ylabel('Age', fontsize=12)
+plt.xticks(rotation=20)
+plt.legend(title='Group', loc='upper right')
+# plt.savefig('E:/sem5/datathon/images/age_work_experience.png')
+plt.show()
+
+# %%
+g = sns.FacetGrid(
+    df_age_work, 
+    row="gender", 
+    col="group", 
+    height=5, 
+    aspect=1.4, 
+    sharey=True
+)
+g.map_dataframe(
+    sns.boxplot, 
+    x="WorkExperience_LastWeek", 
+    y="age",
+    order=[
+        "Working at a job or business", 
+        "With a job or business but not at work", 
+        "Looking for work", 
+        "Not working at a job or business"
+    ]
+)
+for ax in g.axes.flat:
+    ax.set_xticklabels(
+        ["Working at a job", "With a job (not working)", "Looking for work", "Not working"],
+        rotation=20
+    )
+g.set_axis_labels("Work Experience Categories", "Age")
+g.set_titles("{row_name} Gender | {col_name}")
+plt.subplots_adjust(top=0.9)
+g.fig.suptitle("Age Distribution by Work Experience, Diabetes Status, and Gender", fontsize=16)
+plt.savefig("E:/sem5/datathon/images/age_work_experience_gender.png")
 plt.show()
 
 
-
-# %%
-
+#%%
 yes_diabetes_workhrs=df_have_diabetes["HoursWorked_LastWeek"].dropna()
 yes_diabetes_workhrs=yes_diabetes_workhrs[yes_diabetes_workhrs<1000]
 no_diabetes_workhrs=df_nothave_diabetes["HoursWorked_LastWeek"].dropna()
