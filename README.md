@@ -9,6 +9,23 @@
 
 ## EDA 
 
+### Demographic Analysis
+
+#### Diabetes v/s Gender
+
+|Gender |Percentage |
+|------|------|
+|Male| 48.06|
+|Female|51.94|
+
+#### Age 
+
+Most of the older people suffer from the diabetes and youngers have less risk.
+
+![Age](images/age_distribution.png)
+
+![Age and Gender](images/age_gender_distribution.png)
+
 ### Weight History
 
 #### BMI (Relative)
