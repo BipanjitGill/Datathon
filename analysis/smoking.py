@@ -25,12 +25,11 @@ gender_map = {1.0: 'Male', 2.0: 'Female'}
 df_have_diabetes['gender'] = df_have_diabetes['gender'].map(gender_map)
 df_nothave_diabetes = pd.merge(df_nothave_diabetes, gender_df, on='sequence_no', how='inner')
 df_nothave_diabetes['gender'] = df_nothave_diabetes['gender'].map(gender_map)
-df_have_diabetes=df_have_diabetes.dropna(subset=['CurrentCigaretteSmoking'])
-df_nothave_diabetes=df_nothave_diabetes.dropna(subset=['CurrentCigaretteSmoking'])
+df_have_diabetes_curr=df_have_diabetes.dropna(subset=['CurrentCigaretteSmoking'])
+df_nothave_diabetes_curr=df_nothave_diabetes.dropna(subset=['CurrentCigaretteSmoking'])
 
 # %%
-grouped_diabetes=df_have_diabetes.groupby(['CurrentCigaretteSmoking'])['sequence_no'].count()/df_have_diabetes['sequence_no'].count()
-grouped_notdiabetes=df_nothave_diabetes.groupby(['CurrentCigaretteSmoking'])['sequence_no'].count()/df_nothave_diabetes['sequence_no'].count()
+grouped_diabetes=df_have_diabetes_curr.groupby(['CurrentCigaretteSmoking'])['sequence_no'].count()/df_have_diabetes_curr['sequence_no'].count()
+grouped_notdiabetes=df_nothave_diabetes_curr.groupby(['CurrentCigaretteSmoking'])['sequence_no'].count()/df_nothave_diabetes_curr['sequence_no'].count()
 print(grouped_diabetes)
 print(grouped_notdiabetes)
-# %%

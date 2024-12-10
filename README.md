@@ -121,3 +121,11 @@ Woking hours does not have much influence.
 |  Every day |0.2514           | 0.3067     |
 |  Some days	 | 0.0646         | 0.0757     |
 |  Not at all		 | 0.6839         | 0.6175     |
+
+- Smoking data have a lot of missing values.
+
+### Hearing Condition
+
+- Diabetic Patients suffer from hearing problems more as compare to healthy patients as depicted in the figure below and also in article [link](https://www.cdc.gov/diabetes/diabetes-complications/diabetes-and-hearing-loss.html#:~:text=Low%20blood%20sugar%20over%20time,same%20age%20who%20don't.).
+
+ ![General Hearing Condition](images/hearing_condition.png)
