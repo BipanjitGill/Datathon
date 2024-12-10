@@ -129,3 +129,9 @@ Woking hours does not have much influence.
 - Diabetic Patients suffer from hearing problems more as compare to healthy patients as depicted in the figure below and also in article [link](https://www.cdc.gov/diabetes/diabetes-complications/diabetes-and-hearing-loss.html#:~:text=Low%20blood%20sugar%20over%20time,same%20age%20who%20don't.).
 
  ![General Hearing Condition](images/hearing_condition.png)
+
+ ### General Health Condition
+
+ -  The general health condition of most of the diabetic patients is not so good when we compare it with non-diabetic persons.
+
+   ![General Health Condition](images/general_health.png)
