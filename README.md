@@ -11,7 +11,7 @@
 
 ### Demographic Analysis
 
-#### Diabetes v/s Gender
+<!-- #### Diabetes v/s Gender -->
 
 |Gender |Percentage |
 |------|------|
@@ -20,9 +20,12 @@
 
 #### Age 
 
-Most of the older people suffer from the diabetes and youngers have less risk.
+Older individuals are more commonly affected by diabetes, while younger individuals tend to have a lower risk.
 
 ![Age](images/age_distribution.png)
+
+In the provided dataset, the distribution of diabetic cases among males and females across different age groups is similar.
+
 
 ![Age and Gender](images/age_gender_distribution.png)
 
@@ -70,8 +73,9 @@ People who are not working at a job or business are more prone to diabetes
 
 ![Work Experience plot](images/work_experience.png)
 
-- **Working at Job or Business** : Diabetes is more prevalent among older individuals in this category.
-- **Not Working at Job or Business** : The average age is similar for individuals with and without diabetes in this group.
+**Working at Job or Business** : Diabetes is more commonly observed among older individuals in this group.
+
+**Not Working at Job or Business** : This group predominantly consists of older individuals. The average age is similar for both diabetic and non-diabetic individuals, but the interquartile range of age for diabetic patients is narrow, falling between 62 and 75 years. Both male and female who are suffering from diabetes have similar average age.
 
 ![Age Work Experience plot](images/age_work_experience.png)
 
