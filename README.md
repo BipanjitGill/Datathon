@@ -139,3 +139,42 @@ Woking hours does not have much influence.
  -  The general health condition of most of the diabetic patients is not so good when we compare it with non-diabetic persons.
 
    ![General Health Condition](images/general_health.png)
+
+
+## Results 
+
+5 fold cross validation, svm rbf kernel
+
+### RUS ###
+AUC-ROC: 0.827854814853119
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.29      0.80      0.42      1073
+           1       0.96      0.70      0.81      7137
+
+    accuracy                           0.71      8210
+   macro avg       0.62      0.75      0.62      8210
+weighted avg       0.87      0.71      0.76      8210
+
+
+### SMOTE + RUS ###
+AUC-ROC: 0.8223634340084311
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.31      0.75      0.44      1073
+           1       0.95      0.74      0.83      7137
+
+    accuracy                           0.74      8210
+   macro avg       0.63      0.75      0.64      8210
+weighted avg       0.87      0.74      0.78      8210
+
+
+### Summary of Results ###
+Original Data AUC-ROC: 0.7235
+SMOTE AUC-ROC: 0.8215
+RUS AUC-ROC: 0.8279
+SMOTE + RUS AUC-ROC: 0.8224

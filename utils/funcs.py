@@ -29,6 +29,18 @@ def gender_data(path='E:/sem5/datathon/raw_datasets/DEMO_L.XPT'):
     result=result.rename(columns={'SEQN':'sequence_no','RIAGENDR':'gender','INDFMPIR':'income','RIDAGEYR':'age'})
     return result
 
+def demographic_data(path='E:/sem5/datathon/raw_datasets/DEMO_L.XPT'):
+    df=pd.read_sas(path, format='xport')
+    result = df[['SEQN','RIAGENDR', 'RIDAGEYR','INDFMPIR','WTINT2YR']]
+    result=result.rename(columns={'SEQN':'sequence_no','RIAGENDR':'gender','INDFMPIR':'income','RIDAGEYR':'age','WTINT2YR':'weight'})
+    return result
+
+def demographic_data2(path='E:/sem5/datathon/raw_datasets/DEMO_L.XPT'):
+    df=pd.read_sas(path, format='xport')
+    result = df[['SEQN','RIAGENDR', 'RIDAGEYR','INDFMPIR','WTINT2YR','WTMEC2YR']]
+    result=result.rename(columns={'SEQN':'sequence_no','RIAGENDR':'gender','INDFMPIR':'income','RIDAGEYR':'age','WTINT2YR':'weight','WTMEC2YR':'weight2'})
+    return result
+
 def single_histogram(array,x_label,y_label,title,bins=20,density=True,to_save=False,loc="E:/sem5/datathon/images/"):
     plt.figure(figsize=(10, 6))  
     plt.hist(array, bins=bins, density=density, alpha=0.5)
