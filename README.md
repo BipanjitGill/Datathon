@@ -1,3 +1,11 @@
+# NHANES-Diabetes-Prediction
+
+Welcome to the NHANES-Diabetes-Prediction repository! This project is a part of **Societal Challenges Datathon** course at **RWTH Aachen**. This project focuses on predicting whether an individual is at risk of diabetes using data from the **National Health and Nutrition Examination Survey** (NHANES) collected between August 2021 and August 2023. This repository includes Exploratory Data Analysis (EDA), Data Cleaning, Feature Selection and Engineering and Predictive Modeling.
+
+## Table of Contents:
+
+- [EDA](## EDA)
+
 ## Literature Review
 
 ### Attributes use for Diabetes Prediction
