@@ -38,8 +38,8 @@ sh train.sh
 ### Notebooks
 
 - `main.ipynb` contain code to train different models.
-- Helper notebooks contain code various feature selection and to train other models.
-- Analysis contain python files to visualize different features of diabetic and non diabetic patients. 
+- Helper notebooks contain code for feature selection and to train other models.
+- Analysis folder contain python files to visualize different features of diabetic and non diabetic patients. 
 
 ## Dataset 
 
