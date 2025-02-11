@@ -10,6 +10,7 @@ Welcome to the NHANES-Diabetes-Prediction repository! This project is a part of 
 - [EDA](#eda)
 - [Preprocessing](#preprocessing-steps)
 - [Results](#results)
+- [Visualization of weightage given to features by model](#visualization-of-shap-values-of-logistic-regression-model)
 
 ## Usage
 
@@ -27,6 +28,12 @@ Installation of dependencies can be accomplished with:
 pip install -r requirements.txt
 ```
 
+To train different models, change the model name and sampler in `train.sh` and run the following command:
+
+
+```bash
+sh train.sh
+```
 
 ## Dataset 
 
@@ -229,3 +236,7 @@ Woking hours does not have much influence.
 For different Ensemble methods, average AUROC are:
 - Voting Classifier Ensemble = 0.8657
 - Stacking Classifier Ensemble = 0.8649
+
+## Visualization of SHAP values of logistic Regression model
+
+![SHAP](images/shap.png)
