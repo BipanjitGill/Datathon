@@ -40,8 +40,8 @@ The directory structure for the dataset is as follows:
 ├── raw_datasets
 │   ├── acculturation.XPT
 │   ├── alcohol_use.XPT
-|   . 
-|   . 
+|   ├── ...
+|   ├── ...
 │   ├── weight_history.XPT
 ```
 
@@ -216,10 +216,16 @@ Woking hours does not have much influence.
 
 | Model                | No Sampling         |  Borderline SMOTE(Oversampling) |  ADASYN(Oversampling) |  RandomOverSampler(Oversampling) |  TomekLinks(Undersampling) |  SMOTE+Tomek(Hybrid) |
 |----------------------|---------------------|----------------------------------|------------------------|----------------------------------|----------------------------|------------------------|
-|                      | Acc.  | AUROC       | Acc.  | AUROC                        | Acc.  | AUROC        | Acc.  | AUROC                        | Acc.  | AUROC              | Acc.  | AUROC          |
-| **Logistic Regression** | 77.23 | 0.8610  | 78.23 | **0.8579**                   | 76.87 | **0.8585**  | 77.16 | **0.8600**                   | 76.89 | 0.8607             | 77.72 | **0.8589**     |
-| **SVM (Linear)**       | 87.01 | 0.8587  | 78.28 | 0.8558                        | 76.87 | 0.8557     | 77.33 | 0.8572                        | 87.06 | 0.8591             | 77.44 | 0.8556         |
-| **SVM (Rbf)**          | 87.13 | 0.8544  | 77.47 | 0.8520                        | 76.15 | 0.8532     | 76.46 | 0.8555                        | 86.68 | 0.8538             | 76.97 | 0.8534         |
-| **XGBoost**            | 86.37 | 0.8406  | 86.52 | 0.8400                        | 86.10 | 0.8384     | 84.67 | 0.8410                        | 86.32 | 0.8423             | 86.50 | 0.8399         |
-| **Random Forest**      | 87.16 | **0.8616**  | 86.24 | 0.8583                   | 86.63 | 0.8575     | **86.37** | 0.8569                   | **87.44** | 0.8601             | 86.47 | 0.8561         |
-| **Light GBM**         | **87.42** | 0.8614  | **86.90** | 0.8536                   | **87.08** | 0.8522  | 78.93 | 0.8546                   | 87.32 | **0.8613**             | **86.81** | 0.8533         |
+|                      |  AUROC       |  AUROC                          | AUROC          | AUROC                        | AUROC                | AUROC          |
+| **Logistic Regression** |  0.8610  |  **0.8579**                    | **0.8585**   | **0.8600**                    | 0.8607              | **0.8589**     |
+| **SVM (Linear)**       | 0.8587  |  0.8558                         | 0.8557      | 0.8572                        | 0.8591              | 0.8556         |
+| **SVM (Rbf)**          |  0.8544  |  0.8520                         | 0.8532      | 0.8555                        | 0.8538             | 0.8534         |
+| **XGBoost**            |  0.8406  |  0.8400                         | 0.8384      | 0.8410                        | 0.8423              | 0.8399         |
+| **Random Forest**      |  **0.8616**   | 0.8583                    | 0.8575      | 0.8569                    | 0.8601              | 0.8561         |
+| **Light GBM**         |  0.8614  |  0.8536                    | 0.8522  | 0.8546                    | **0.8613**              | 0.8533         |
+| **Balanced Random Forest**         |  0.8511  |  0.8570                    | 0.8520  | 0.8553                    | 0.8515              | 0.8546        |
+
+
+For different Ensemble methods, average AUROC are:
+- Voting Classifier Ensemble = 0.8657
+- Stacking Classifier Ensemble = 0.8649
