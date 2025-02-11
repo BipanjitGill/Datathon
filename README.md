@@ -214,7 +214,7 @@ Woking hours does not have much influence.
 
 5-fold cross validation is applied to calculate the accuracy and AUROC.
 
-| Model                | No Sampling         | Oversampling - Borderline SMOTE | Oversampling - ADASYN | Oversampling - RandomOverSampler | Undersampling - TomekLinks | Hybrid - SMOTE+Tomek |
+| Model                | No Sampling         |  Borderline SMOTE(Oversampling) |  ADASYN(Oversampling) |  RandomOverSampler(Oversampling) |  TomekLinks(Undersampling) |  SMOTE+Tomek(Hybrid) |
 |----------------------|---------------------|----------------------------------|------------------------|----------------------------------|----------------------------|------------------------|
 |                      | Acc.  | AUROC       | Acc.  | AUROC                        | Acc.  | AUROC        | Acc.  | AUROC                        | Acc.  | AUROC              | Acc.  | AUROC          |
 | **Logistic Regression** | 77.23 | 0.8610  | 78.23 | **0.8579**                   | 76.87 | **0.8585**  | 77.16 | **0.8600**                   | 76.89 | 0.8607             | 77.72 | **0.8589**     |

@@ -48,3 +48,5 @@ df=df[columns_to_select]
 # CurrentWeight                 12
 # WorkExperience_LastWeek       13
 # WeightOneYearAgo              12
+
+#%%
