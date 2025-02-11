@@ -35,6 +35,12 @@ To train different models, change the model name and sampler in `train.sh` and r
 sh train.sh
 ```
 
+### Notebooks
+
+- `main.ipynb` contain code to train different models.
+- Helper notebooks contain code various feature selection and to train other models.
+- Analysis contain python files to visualize different features of diabetic and non diabetic patients. 
+
 ## Dataset 
 
 I have used the **National Health and Nutrition Examination Survey**(NHANES) Questionnaire and Demographic data. The data is freely available at the following link:
