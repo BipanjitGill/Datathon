@@ -4,7 +4,47 @@ Welcome to the NHANES-Diabetes-Prediction repository! This project is a part of 
 
 ## Table of Contents:
 
-- [EDA](## EDA)
+- [Usage](#usage)
+- [Dataset](#dataset)
+- [Literature Review](#literature-review)
+- [EDA](#eda)
+- [Preprocessing](#preprocessing-steps)
+- [Results](#results)
+
+## Usage
+
+### Clone the repository
+```
+git clone https://github.com/BipanjitGill/Datathon
+cd Datathon/
+```
+
+### Requirements
+
+Installation of dependencies can be accomplished with:
+
+```bash
+pip install -r requirements.txt
+```
+
+
+## Dataset 
+
+I have used the **National Health and Nutrition Examination Survey**(NHANES) Questionnaire and Demographic data. The data is freely available at the following link:
+https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Questionnaire&Cycle=2021-2023
+
+The directory structure for the dataset is as follows:
+
+```bash
+./  Datathon
+├── raw_datasets
+│   ├── acculturation.XPT
+│   ├── alcohol_use.XPT
+|   . 
+|   . 
+│   ├── weight_history.XPT
+```
+
 
 ## Literature Review
 
@@ -149,40 +189,37 @@ Woking hours does not have much influence.
    ![General Health Condition](images/general_health.png)
 
 
+## Preprocessing Steps
+
+- **Removed columns** with more than 30% missing (NaN) values.
+- **Replaced** entries labeled as 'Refused' and 'Don't know' with NaN values.
+- **Filled missing values in continuous variables** using the iterative imputer.
+- **Imputed missing values in categorical variables** using the nearest neighbor imputation method.
+- **Converted categorical variables** into one-hot encoded features.
+- **Created new features**:
+  - BMI (Body Mass Index)
+  - Weight Difference in a Year
+  - Total Physical Activity Hours
+
+- **Selected features** for modeling: Race,  Gender, Age, Sample Weight, Sample Weight 2, HearingStatus_NoAid, EverTold_Hypertension, EverTold_HighCholesterol, CurrentlyTaking_CholesterolMedication, GeneralHealth_Status, WorkExperience_LastWeek, SmokedAtLeast100CigarettesInLife, EverHad_Alcohol, SittingTime_TypicalDay, WeekdaySleepHours, AlcoholConsumptionFrequency_12Months, BMI, Weight Difference in a Year, Total Physical Activity Hours.
+
+- **Visualization**:
+  - Applied **PCA** to reduce the dataset to 15 dimensions.
+  - Generated a **t-SNE** plot on the transformed data for visualizing the high-dimensional feature space.
+
+   ![t-SNE](images/tsne_encoded.png)
+
+
 ## Results 
 
-5 fold cross validation, svm rbf kernel
+5-fold cross validation is applied to calculate the accuracy and AUROC.
 
-### RUS ###
-AUC-ROC: 0.827854814853119
-
-Classification Report:
-              precision    recall  f1-score   support
-
-           0       0.29      0.80      0.42      1073
-           1       0.96      0.70      0.81      7137
-
-    accuracy                           0.71      8210
-   macro avg       0.62      0.75      0.62      8210
-weighted avg       0.87      0.71      0.76      8210
-
-
-### SMOTE + RUS ###
-AUC-ROC: 0.8223634340084311
-
-Classification Report:
-              precision    recall  f1-score   support
-
-           0       0.31      0.75      0.44      1073
-           1       0.95      0.74      0.83      7137
-
-    accuracy                           0.74      8210
-   macro avg       0.63      0.75      0.64      8210
-weighted avg       0.87      0.74      0.78      8210
-
-
-### Summary of Results ###
-Original Data AUC-ROC: 0.7235
-SMOTE AUC-ROC: 0.8215
-RUS AUC-ROC: 0.8279
-SMOTE + RUS AUC-ROC: 0.8224
+| Model                | No Sampling         | Oversampling - Borderline SMOTE | Oversampling - ADASYN | Oversampling - RandomOverSampler | Undersampling - TomekLinks | Hybrid - SMOTE+Tomek |
+|----------------------|---------------------|----------------------------------|------------------------|----------------------------------|----------------------------|------------------------|
+|                      | Acc.  | AUROC       | Acc.  | AUROC                        | Acc.  | AUROC        | Acc.  | AUROC                        | Acc.  | AUROC              | Acc.  | AUROC          |
+| **Logistic Regression** | 77.23 | 0.8610  | 78.23 | **0.8579**                   | 76.87 | **0.8585**  | 77.16 | **0.8600**                   | 76.89 | 0.8607             | 77.72 | **0.8589**     |
+| **SVM (Linear)**       | 87.01 | 0.8587  | 78.28 | 0.8558                        | 76.87 | 0.8557     | 77.33 | 0.8572                        | 87.06 | 0.8591             | 77.44 | 0.8556         |
+| **SVM (Rbf)**          | 87.13 | 0.8544  | 77.47 | 0.8520                        | 76.15 | 0.8532     | 76.46 | 0.8555                        | 86.68 | 0.8538             | 76.97 | 0.8534         |
+| **XGBoost**            | 86.37 | 0.8406  | 86.52 | 0.8400                        | 86.10 | 0.8384     | 84.67 | 0.8410                        | 86.32 | 0.8423             | 86.50 | 0.8399         |
+| **Random Forest**      | 87.16 | **0.8616**  | 86.24 | 0.8583                   | 86.63 | 0.8575     | **86.37** | 0.8569                   | **87.44** | 0.8601             | 86.47 | 0.8561         |
+| **Light GBM**         | **87.42** | 0.8614  | **86.90** | 0.8536                   | **87.08** | 0.8522  | 78.93 | 0.8546                   | 87.32 | **0.8613**             | **86.81** | 0.8533         |
