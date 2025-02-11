@@ -195,6 +195,11 @@ Woking hours does not have much influence.
 
    ![General Health Condition](images/general_health.png)
 
+### Feature Importance
+
+- Important features that we got by fitting the data on Random Forest
+   ![Important Features](images/feature_importance.png)
+
 
 ## Preprocessing Steps
 
@@ -215,6 +220,7 @@ Woking hours does not have much influence.
   - Generated a **t-SNE** plot on the transformed data for visualizing the high-dimensional feature space.
 
    ![t-SNE](images/tsne_encoded.png)
+
 
 
 ## Results 
